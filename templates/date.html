@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="container-flow">
+    <form class="form-inline col-sm-12" onsubmit="return false">
+        <div class="form-group">
+            <input class="form-control col-sm-4" type="text" value=""/>
+            <button class="form-control btn btn-primary col-sm-4" id="toTimeBtn">时间戳转时间</button>
+            <button class="form-control btn btn-primary col-sm-4" id="toTimestampBtn" style="display: none">时间转时间戳</button>
+            <button class="form-control btn btn-default col-sm-4"  onclick="toggleBtn(this)"><=></button>
+            <input class="form-control col-sm-4" type="text" value="">
+        </div>
+    </form>
+    </div>
+
+{% endblock %}
+{% block extrascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/page/home.js') }}"></script>
+{% endblock %}

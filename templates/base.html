@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} Web ToolKit</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}">
+{% endblock %}
+</head>
+<body role="document">
+     <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Web ToolKit</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li {% if path=='/json' %} class="active"{% endif %}><a href="/json">JSON工具</a></li>
+            <li {% if path=='/date' %} class="active"{% endif %}><a href="/date">时间工具</a></li>
+            <li {% if path=='/requests' %} class="active"{% endif %}><a href="/requests">Http请求测试</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+              <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id="container" class="container" style="min-height: 800px;">{% block content %}{% endblock %}</div>
+    <div id="footer" class="container text-center">
+        {% block footer %}
+        &copy; Copyright 2015 by <a href="mailto:lackgod@hotmail.com">lackgod@hotmail.com</a>
+        {% endblock %}
+    </div>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-1.11.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+{% block extrascript %}
+{% endblock %}
+</body>
+</html>

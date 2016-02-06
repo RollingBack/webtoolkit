@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <form class="form-horizontal" onsubmit="return false">
+        <div class="from-group form-inline col-sm-12">
+            <label class="control-label col-sm-2">Http请求</label>
+            <div class="input-group">
+                <div class="input-group-addon" id="httpStart">http://</div>
+                <input type="text" id="endPoint" class="form-control col-sm-4" style="width: 400px" value="" placeholder="www.test.com/test">
+                <div class="input-group-addon">&darr;</div>
+            </div>
+            <button class="form-control btn-default" id="addPramsBtn">添加参数</button>
+            <button class="form-control btn-default" id="addHeaderBtn">定义头</button>
+            <button class="form-control btn-default" id="getRequestBtn">GET</button>
+            <button class="form-control btn-default" id="postRequestBtn">POST</button>
+        </div>
+        <div class="form-group form-inline col-sm-12" id="headerDefine"  style="padding-top: 10px;display: none">
+            <label class="control-label col-sm-2">定义头</label>
+            <input type="text" name="header" class="form-control col-sm-10" value="" placeholder="header" style="width:780px; padding-left: 20px;margin-left: 15px">
+        </div>
+        <div class="container-flow" id="paramsContainer">
+            <div class="from-group form-inline col-sm-12" style="padding-top: 9px">
+                <label class="control-label col-sm-2 paramsLabel">参数1</label>
+                <input class="form-control attribute" placeholder="参数名" name="attribute_1" type="text" value="">
+                <input class="form-control value" placeholder="参数值" name="value_1" type="text" value="">
+                <button class="form-control btn-warning paramsDelBtn">删除</button>
+            </div>
+            <div class="from-group form-inline col-sm-12" style="padding-top: 9px">
+                <label class="control-label col-sm-2 paramsLabel">参数2</label>
+                <input class="form-control attribute"  placeholder="参数名" name="attribute_2" type="text" value="">
+                <input class="form-control value" placeholder="参数值" name="value_2" type="text" value="">
+                <button class="form-control btn-warning paramsDelBtn">删除</button>
+            </div>
+        </div>
+
+    </form>
+
+    </div>
+<div class="form-horizontal" style="margin-top: 30px">
+        <h4>响应</h4>
+        <textarea style="height: 500px" id="response" class="form-control"></textarea>
+    </div>
+{% endblock %}
+{% block extrascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/page/home.js') }}"></script>
+{% endblock %}
