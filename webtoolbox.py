@@ -7,7 +7,6 @@ from json import loads, dumps
 import phpserialize as php
 import time
 from requests import request as fetch
-from database import *
 from sqlalchemy.exc import *
 from redis import Redis
 from redis.exceptions import ConnectionError
